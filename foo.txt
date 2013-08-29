@@ -1,2 +1,9 @@
 foo
 bar
+
+######
+TEST
+
+Can I revise the file that is not belong to me?
+
+Rejoicing in hope, patient in tribulation.
