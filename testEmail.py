@@ -6,7 +6,15 @@ def parse_email(str):
     """ ex: {'user':'wmason','domain':'stevens','tld':'edu'} """
     """ or empty dictionary if not valid """
     solution = {}
-    match_string = "(^| )(?P<user>[a-zA-Z0-9_\+\.]+)@(?P<domain>[a-zA-Z0-9]+)\.(?P<tld>[a-zA-Z]{2,3})( |\.|$)"
+    match_string = '''
+		(^| )
+		(?P<user>[a-zA-Z0-9_\+\.]+)
+		@
+		(?P<domain>[a-zA-Z0-9]+)
+		\.
+		(?P<tld>[a-zA-Z]{2,3})
+		( |\.|$)
+		'''
     emails = re.compile(match_string)
     match = emails.search(str)
     if match:
