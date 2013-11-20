@@ -31,6 +31,13 @@ k.close()
 # <codecell>
 
 k = Key(b)
+k.key = 'preview_mapper.py'
+k.set_contents_from_filename('/Users/winteram/Documents/Teaching/BIA_Fall2013/preview_mapper.py')
+k.close()
+
+# <codecell>
+
+k = Key(b)
 k.key = 'reducer.py'
 k.set_contents_from_filename('/Users/winteram/Documents/Teaching/reducer.py')
 k.close()
@@ -83,7 +90,7 @@ for word in b.list():
 step = StreamingStep(name='Alcohol Step',
 	mapper='s3n://bia660-winter/mapper.py',
 	reducer='s3n://bia660-winter/reducer.py', 
-	input='s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-us-all/3gram/data',
+	input='s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-us-all/3gram/',
 	output='s3n://bia660-winter/output')
 
 # <codecell>
@@ -98,6 +105,23 @@ jobid
 
 status = emrcon.describe_jobflow(jobid)
 print status.state
+
+# <codecell>
+
+# Using EMR's wordcount example
+step = StreamingStep(name='Preview',
+	mapper='s3n://wambia660fall2013/preview_mapper.py',
+	reducer='aggregate', 
+	input='s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-us-all/3gram/',
+	output='s3n://wambia660fall2013/output/preview_output')
+
+# <codecell>
+
+jobid = emrcon.run_jobflow(name='Preview Mapper', log_uri='s3://wambia660fall2013/logfiles/preview',steps=[step],num_instances=4)
+
+# <codecell>
+
+print jobid
 
 # <codecell>
 

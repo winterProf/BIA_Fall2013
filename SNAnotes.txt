@@ -1,0 +1,37 @@
+
+Social network analysis class:
+
+
+Node / Vertex
+Edge / Tie
+Directed / Undirected
+Graph / Network
+	- tree
+	- DAG
+Walks:
+	- any route through graph from vertex to vertex
+	- path does not include any vertex twice
+	- trail does not use any edge twice
+	- cycle: path that begins and ends on same vertex
+	- circut: trail that begins and ends on same vertex
+
+Shortest paths (dijkstra!)
+
+Degree
+	- degree distributions
+	- neighbors
+
+Centrality
+	- degree
+	- closeness
+	- betweenness
+	- eigenvector
+
+Community detection (blockmodeling)
+
+Components / Cliques
+	- isolates
+
+Diameter
+
+Dynamic graphs!

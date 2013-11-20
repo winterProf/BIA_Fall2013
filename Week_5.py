@@ -198,6 +198,10 @@ means = np.mean(tdeltas, axis=1)
 
 # <codecell>
 
+means_dict = {'Positive':means[0],'Negative':means[1]}
+
+# <codecell>
+
 stds= np.std(tdeltas, axis=1)
 
 # <codecell>
@@ -218,6 +222,24 @@ plt.xlabel('Sentiment')
 plt.ylabel('Secs between posts')
 plt.xticks([0.5,1.5], ('Positive','Negative'))
 plt.show()
+
+# <codecell>
+
+import vincent
+vincent.core.initialize_notebook()
+
+# <codecell>
+
+bar = vincent.Bar(means_dict)
+bar.axis_titles(x='Valence', y='Inter-tweet time')
+bar.scales['x'].padding = 0.2
+bar.height=300
+bar.width=300
+bar.display()
+
+# <codecell>
+
+bar.to_json('intertweet.json', html_out=True, html_path='intertweet.html')
 
 # <codecell>
 

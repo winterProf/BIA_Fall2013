@@ -1,0 +1,63 @@
+SUCCESSFUL:
+
+/usr/java/latest/bin/java 
+-cp 
+/home/hadoop/conf:
+/usr/java/latest/lib/tools.jar:
+/home/hadoop:/home/hadoop/hadoop-tools.jar:
+/home/hadoop/hadoop-tools-1.0.3.jar:
+/home/hadoop/hadoop-core-1.0.3.jar:
+/home/hadoop/hadoop-core.jar:
+/home/hadoop/lib/*:
+/home/hadoop/lib/jetty-ext/* 
+
+-Xmx1000m 
+-Dhadoop.log.dir=/mnt/var/log/hadoop/steps/4 
+-Dhadoop.log.file=syslog 
+-Dhadoop.home.dir=/home/hadoop 
+-Dhadoop.id.str=hadoop 
+-Dhadoop.root.logger=INFO,DRFA 
+-Djava.io.tmpdir=/mnt/var/lib/hadoop/steps/4/tmp 
+-Djava.library.path=
+/home/hadoop/native/Linux-amd64-64 
+org.apache.hadoop.util.RunJar 
+/mnt/var/lib/hadoop/steps/4/script-runner.jar 
+s3://elasticmapreduce/libs/hive/hive-script 
+--run-hive-script 
+--hive-versions 0.11.0.1 
+--args 
+-f s3://wambia660fall2013/fullNgram.hql 
+-d INPUT=s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-us-all/1gram/ 
+-d OUTPUT=s3://wambia660fall2013/output/
+
+
+FAILED:
+/usr/lib/jvm/java-6-sun/bin/java 
+-cp 
+/home/hadoop/conf:
+/usr/lib/jvm/java-6-sun/lib/tools.jar:
+/home/hadoop:/home/hadoop/hadoop-0.18-tools.jar:
+/home/hadoop/hadoop-0.18-core.jar:
+/home/hadoop/lib/*:
+/home/hadoop/lib/jetty-ext/* 
+
+-Xmx1000m 
+-Dhadoop.log.dir=/mnt/var/log/hadoop/steps/3 
+-Dhadoop.log.file=syslog 
+-Dhadoop.home.dir=/home/hadoop 
+-Dhadoop.id.str=hadoop 
+-Dhadoop.root.logger=INFO,DRFA 
+-Djava.io.tmpdir=/mnt/var/lib/hadoop/steps/3/tmp 
+-Djava.library.path=
+/home/hadoop/lib/native/Linux-amd64-64 
+org.apache.hadoop.mapred.JobShell 
+/mnt/var/lib/hadoop/steps/3/script-runner.jar 
+s3n://us-east-1.elasticmapreduce/libs/hive/hive-script 
+--base-path s3n://us-east-1.elasticmapreduce/libs/hive/ 
+--hive-versions latest 
+--run-hive-script 
+--args 
+-f s3://wambia660fall2013/fullNgramNames.hql 
+-d INPUT=s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-us-all/1gram/ 
+-d OUTPUT=s3://wambia660fall2013/output/
+
