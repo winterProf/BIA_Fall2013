@@ -1,0 +1,164 @@
+body
+{	
+	font-family: Verdana, Helvetica, sans-serif;
+	background-color: #F5E5B7;
+}
+
+.error
+{
+	color: red;
+	font-size: 11px;
+}
+
+#top-sec
+{
+	margin: 10px;
+}
+
+#main-title
+{
+	font-size: 24px;
+	margin: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#main-title a
+{
+	text-decoration: none;
+	color: black;
+}
+
+#description
+{
+	font-family: 'Arial',sans-serif;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-style: italic;
+}
+
+#form-wrapper
+{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#new-or-old
+{
+	margin: 20px;
+}
+
+#new-template
+{
+
+}
+
+#load-template
+{
+
+}
+
+#bottom-sec
+{
+}
+
+#loaded-template
+{
+	display: none;
+}
+
+#progress-wrapper
+{
+	display: none;
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+}
+
+#progressbar
+{
+	width: 580px;
+}
+
+.progress-label 
+{
+    float: left;
+    margin-left: 50%;
+    margin-top: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+ }
+
+.d3vis
+{
+	display: none;
+	float: left;
+	padding: 10px;
+	border: dashed 2px black;
+}
+
+#percent-match
+{
+	width: 200px;
+}
+
+.pctmatch
+{
+	font-size: 54px;
+}
+
+.pctmatch-pct
+{
+	font-size: 24px;
+}
+
+.pctmatch-txt
+{
+	font-size: 12px;
+	font-style: italic;
+}
+
+#countrypie
+{
+	float: left;
+}
+
+#countrylist
+{
+	float: left;
+	padding-top: 30px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.rname {
+	font-family: 'Arial',sans-serif;
+	font-size: 12px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.axis text {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.x.axis path {
+  display: none;
+}
+
+#titles
+{
+	background-color: white;
+}
